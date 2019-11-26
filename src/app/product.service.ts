@@ -8,8 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductService {
 
-  constructor(private http:HttpClient) { }
-  private url:string = "";
+  private url:string = "http://localhost:9000";
   private headers = new HttpHeaders()
     .set('Content-Type','application/json');
 
@@ -40,4 +39,6 @@ export class ProductService {
     return this.http.delete(
       this.url + '/product/' + id);
   }
+
+  constructor(private http:HttpClient) { }
 }
