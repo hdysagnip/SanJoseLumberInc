@@ -1,0 +1,35 @@
+<div class="box">
+  <form #myForm="ngForm" (submit)="addProduct()" id="form">
+    <h3 style="font-family: Helvetica;">Add Item</h3>
+    <label for="category">Category</label><br>
+    <input type="text" placeholder="Product Category" #category="ngModel" name="productCat" [(ngModel)]="productCat" [class.invalid]="category.invalid && category.touched" pattern="[a-zA-Z . , ' /s]*" required><br><br>
+    <label for="p_name">Product Name</label><br>
+    <input type="text" placeholder="Product Name" #product_name="ngModel" name="productName" [(ngModel)]="productName" [class.invalid]="product_name.invalid && product_name.touched" required><br><br>
+    <label for="quantity">Quantity</label><br>
+    <input type="number" placeholder="Quantity" #quantity="ngModel" name="productQty" [(ngModel)]="productQty" [class.invalid]="quantity.invalid && quantity.touched" required><br><br>
+    <label for="price">Price</label><br>
+    <input type="number" placeholder="Price" #price="ngModel" name="productPrice" [(ngModel)]="productPrice"  [class.invalid]="price.invalid && price.touched" required><br><br>
+    <button type="submit" class="button" style="width: 100px; height: 40px; margin-left: 80px;">ADD</button>
+  </form>
+</div>
+<div class="box2">
+  <table>
+    <tr>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th><h3>Category</h3></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th><h3>Product Name</h3></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th><h3>Quantity</h3></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th><h3>Price</h3></th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <th><h3>Action</h3></th>&nbsp;
+    </tr><br>
+    <tr *ngFor="let product of products">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{ product.category }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{ product.product_name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{ product.quantity }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <td>{{ product.price }}</td>&nbsp;
+      <td>
+        <button (click)="updateProduct(product._id)">UPDATE</button>
+        <button (click)="deleteProduct(product._id)">DELETE</button>
+      </td>
+    </tr>
+  </table>
+</div>
