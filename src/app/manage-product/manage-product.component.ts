@@ -18,7 +18,7 @@ export class ManageProductComponent implements OnInit {
   private productPrice:Number = 0;
   
   id:String;  
-  constructor(private productService:ProductService, privateroute:ActivatedRoute, private router:Router, public authService: AuthService) {
+  constructor(private productService:ProductService, private route:ActivatedRoute, private router:Router, public authService: AuthService) {
  
   }
 

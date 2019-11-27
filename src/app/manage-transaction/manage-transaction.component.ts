@@ -9,7 +9,7 @@ import { Product } from '../product';
 })
 export class ManageTransactionComponent implements OnInit {
 
-  private products:Product[];
+  public products:Product[];
 
   constructor(private productService:ProductService) { }
 
@@ -18,6 +18,33 @@ export class ManageTransactionComponent implements OnInit {
         this.products = data;
       }
     );
+  }
+
+  orders = [];
+  price = [];
+  total = 0;
+  payment = 0;
+  change = 0;
+  
+  add(product){
+    if(this.orders.includes(product)){
+      product.quantity += 1;
+      product.total = product.price * product.quantity;
+    }else{
+      this.orders.push(product);
+      product.total = product.price;
+    }
+    this.price.push(product.price);
+    this.total = this.price.reduce((x, y) => x + y, 0) 
+  }
+
+  new(){
+    this.orders.length = 0;
+    this.orders = [];
+    this.price.length = 0;
+    this.total = 0;
+    this.payment = 0;
+    this.change = 0;
   }
 
   ngOnInit() {

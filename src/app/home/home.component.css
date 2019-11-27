@@ -6,6 +6,7 @@
     height: 590px;
     background-color: rgb(119, 130, 141);
     position: fixed;
+    margin-top: 10px;
 }
 .box{
     border-radius: 5px;

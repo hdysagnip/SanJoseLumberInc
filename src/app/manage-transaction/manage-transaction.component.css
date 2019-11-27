@@ -3,6 +3,7 @@
 }
 h3{
     font-family: Helvetica;
+    cursor: pointer;
 }
 .box{
     background-color: lightgray;
@@ -11,11 +12,12 @@ h3{
     margin-left: 40px;
     width: 600px;
     height: 580px;
+    padding: 15px;
 }
 .box2{
     border: 1px solid black;
-    margin-top: -580px;
-    margin-left: 650px;
+    margin-top: -610px;
+    margin-left: 680px;
     width: 650px;
     height: 580px;
 }
@@ -128,4 +130,16 @@ h3{
     border: 1px solid black;
     padding-left: 5px;
     font-family: Helvetica;
+}
+.items{
+    cursor: pointer;
+    height: 50px;
+    font-family: Arial;
+    font-size: 15px;
+    color: white;
+    background-color: gray;
+    border: 1px solid black;
+    margin-right: 100px;
+    margin-bottom: 5px;
+    width: 595px;
 }
