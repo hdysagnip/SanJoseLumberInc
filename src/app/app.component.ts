@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import{ActivatedRoute,Router,ParamMap} from '@angular/router'; 
+import { AuthService } from './auth.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,4 +11,13 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'SanJoseLumberInc';
 
+  constructor(private route:ActivatedRoute, private router:Router, public authService: AuthService) {
+ 
+  }
+
+  logout(): void {
+    console.log("Logout");
+    this.authService.logout();
+    this.router.navigate(['/home']);
+  }
 }
