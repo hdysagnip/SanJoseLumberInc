@@ -63,7 +63,7 @@ export class HomeComponent implements OnInit {
 
     // stop here if form is invalid
     if (this.loginForm.invalid) {
-      return;
+      return this.message = "Please check your username and password";
       console.log("Login unsuccessful");
   }
   else{
