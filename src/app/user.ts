@@ -1,4 +1,4 @@
 export class User{ 
-    username='admin';
-    password='admin';
+    username:String;
+    password:String;
 } 

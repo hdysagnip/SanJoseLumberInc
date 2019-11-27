@@ -4,8 +4,7 @@
 .bg{
     width: 1350px;
     height: 590px;
-    background-color: lightslategrey;
-    opacity: 20%;
+    background-color: rgb(119, 130, 141);
     position: fixed;
 }
 .box{
@@ -41,4 +40,7 @@ button{
     background-color: #333;
     color:#f2f2f2;
     border: none;
+}
+.error{
+    border: 1px solid red;
 }

@@ -12,13 +12,13 @@ export class UserService {
   private headers = new HttpHeaders()
     .set('Content-Type','application/json');
 
-    getUser():Observable<User[]>{
+    getUsers():Observable<User[]>{
       return this.http.get<User[]>(
         this.url + "/user"
       );
     }
 
-    compareUser(user:User):Observable<any>{
+    compare(user:User):Observable<any>{
       return this.http.post<any>(
         this.url + "/user", user,
         {headers:this.headers}

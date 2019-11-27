@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
+import{ActivatedRoute,Router,ParamMap} from '@angular/router'; 
+import { AuthService } from '../auth.service';
 
 @Component({
 selector: 'app-manage-product',
@@ -14,8 +16,9 @@ export class ManageProductComponent implements OnInit {
   private productCat:String;
   private productQty:Number = 0;
   private productPrice:Number = 0;
-
-  constructor(private productService:ProductService) {
+  
+  id:String;  
+  constructor(private productService:ProductService, privateroute:ActivatedRoute, private router:Router, public authService: AuthService) {
  
   }
 
@@ -75,9 +78,16 @@ export class ManageProductComponent implements OnInit {
       )
       }
   }
-  
+  //public uN;
   ngOnInit() {
+    this.id = localStorage.getItem('token');
     this.getProducts();
+  }
+
+  logout(): void {
+    console.log("Logout");
+    this.authService.logout();
+    this.router.navigate(['/home']);
   }
 
 }

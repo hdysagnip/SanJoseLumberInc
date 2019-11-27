@@ -9,11 +9,11 @@ selector: 'app-manage-product',
 })
 export class ManageProductComponent implements OnInit {
 
-  public products:Product[];
-  public productName:String;
-  public productCat:String;
-  public productQty:Number = 0;
-  public productPrice:Number = 0;
+  private products:Product[];
+  private productName:String;
+  private productCat:String;
+  private productQty:Number = 0;
+  private productPrice:Number = 0;
 
   constructor(private productService:ProductService) {
  

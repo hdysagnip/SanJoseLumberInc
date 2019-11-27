@@ -1,20 +1,26 @@
 <div class="bg">
         <div class="box">
-            <form class="form" method="post" action="index.php">
-                  
-                <!-- <div class="form-group">
-                    <label>Username</label>
-                <br/>
-                    <input type="text" class="form-control" name="username" id="">
+        <p *ngIf="message" class="text-center error">{{message}}</p>
+            <form [formGroup]="loginForm" (ngSubmit)="compare()" class="form">
+                <div class="form-group" [ngClass]="{'has-error':submitted && f.username.errors}">
+                        <label for="username">Username</label><br>
+                        <input type="text" placeholder="Username" formControlName="username" pattern="[a-zA-Z . , ' /s]*" required/><br>
+                        <div *ngIf="submitted && f.username.errors">
+                                <div *ngIf="f.username.errors.required">Username is required</div>
+                        </div>
                 </div>
                 <br/>
-                <div class="form-group">
-                    <label>Password</label>
-                    <br/>
-                    <input type="password" class="form-control" name="password" id="">
+                <div class="form-group"[ngClass]="{'has-error': submitted && f.password.errors}">
+                        <label for="password" >Password</label><br>
+                        <input type="password" placeholder="Password" formControlName="password" pattern="[a-zA-Z . , ' /s]*" required/><br>
+                        <div *ngIf="submitted && f.password.errors">
+                                <div *ngIf="f.password.errors.required">Password is required</div>
+                        </div>
                 </div>
                 <br/><br/>
-                <button type="submit" class="btn btn-primary btn-lg"  name="login">Log me In!</button> -->
+                <div class="col-xs-12 form-group text-right">
+                        <button class="btn btn-success" type="submit">Login</button>
+                </div>
             </form>
         </div>
 </div>

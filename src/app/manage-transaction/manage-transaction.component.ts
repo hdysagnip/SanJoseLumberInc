@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+import { Product } from '../product';
 
 @Component({
   selector: 'app-manage-transaction',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ManageTransactionComponent implements OnInit {
 
-  constructor() { }
+  private products:Product[];
+
+  constructor(private productService:ProductService) { }
+
+  getProducts(){
+    this.productService.getProducts().subscribe((data) => {
+        this.products = data;
+      }
+    );
+  }
 
   ngOnInit() {
+    this.getProducts();
   }
 
 }

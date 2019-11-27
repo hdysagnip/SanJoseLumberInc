@@ -8,7 +8,7 @@ const cors = require('cors');
 app.use(cors());
 
 // create mongoose connection
-mongoose.connect('mongodb+srv://lnmllrfrnndz:@10Blink_@cluster0-dwchw.mongodb.net/test?retryWrites=true&w=majority',{ useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect('mongodb+srv://heidy:root@cluster0-qkgvi.mongodb.net/test?retryWrites=true&w=majority',{ useUnifiedTopology: true, useNewUrlParser: true });
 
 // create User model with name and age as field
 const Product = mongoose.model('product',{
@@ -19,10 +19,10 @@ const Product = mongoose.model('product',{
 });
 
 // set directory to static
-app.use(express.static(__dirname+'/dist/app'));
+app.use(express.static(__dirname+'/dist/SanJoseLumberInc'));
 
 app.get('/',(req,res) => {
-    res.sendFile(__dirname+'/dist/app/index.html');
+    res.sendFile(__dirname+'/dist/SanJoseLumberInc/index.html');
 });
 
 app.get('/products', (req, res)  => {     
@@ -64,9 +64,9 @@ app.delete('/product/:id', (req, res) => {
     })
 });
 
-// listen to port 8000
-const PORT = process.env.PORT || 8000;
+// listen to port 9000
+const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => {
-    console.log('Server running at port ${PORT}');
+    console.log(`Server running at port ${PORT}`);
 });
