@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private url:string = "http://localhost:9000";
+  private url:string = "";
   private headers = new HttpHeaders()
     .set('Content-Type','application/json');
 
