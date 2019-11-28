@@ -38,6 +38,14 @@ export class ManageTransactionComponent implements OnInit {
     this.total = this.price.reduce((x, y) => x + y, 0) 
   }
 
+  compute(){
+    if(this.payment == 0 || this.payment < this.total){
+        
+    }else{
+      this.change = this.payment - this.total;
+    }
+  }
+
   new(){
     this.orders.length = 0;
     this.orders = [];
