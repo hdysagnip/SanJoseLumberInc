@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class SalesService {
 
-  private url:string = "http://localhost:8080";
+  private url:string = "";
   private headers = new HttpHeaders()
     .set('Content-Type','application/json');
 
