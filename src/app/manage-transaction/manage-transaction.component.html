@@ -1,27 +1,26 @@
 <div class="manage_transaction">
-    <div class="box">
-                <h3>&nbsp;&nbsp;&nbsp;PRODUCT LIST</h3>
-                <table>
-                  <button class="items" *ngFor='let product of products' (click)="add(product)">{{product.product_name}}</button>
-                </table>
+  <div class="box">
+    <h3>&nbsp;&nbsp;&nbsp;PRODUCT LIST</h3>
+    <table>
+      <button class="items" *ngFor='let product of products' (click)="add(product)">{{product.product_name}}</button>
+    </table>
+  </div>
+  <div class="box2">
+    <div class="transaction">
+      <tr *ngFor="let order of orders">
+        <td>{{order.product_name}} x  {{order.quantity}} @ {{order.price}}.00 {{order.total}}.00</td>
+      </tr><br><br>
     </div>
-    <div class="box2">
-
-        <div class="transaction">
-          <tr *ngFor="let order of orders">
-            <td>{{order.product_name}} x  {{order.quantity}} @ {{order.price}}.00 {{order.total}}.00</td>
-          </tr>
-            <br><br>
-          </div>
-          <div class="labels">
-              <label id="total">TOTAL:</label><br><b>{{total}}.00</b><br>
-              <label id="total_payment">PAYMENT:</label><br><b>{{payment}}.00</b><br>
-              <label id="change">CHANGE:</label><br><b>{{change}}.00</b>
-          </div>
-          <div class="payment">
-              <label id="enter">ENTER PAYMENT:</label><br>
-              <input type="text" id="payment" name="payment" [(ngModel)]="payment">
-          </div>  
-            <button id="pay_order" (click)="compute()">PAY</button>
-            <button id="new" (click)="new()">NEW</button>
+    <div class="labels">
+      <label id="total">TOTAL:</label><br><b>{{total}}.00</b><br>
+      <label id="total_payment">PAYMENT:</label><br><b>{{payment}}.00</b><br>
+      <label id="change">CHANGE:</label><br><b>{{change}}.00</b>
+    </div>
+    <div class="payment">
+      <label id="enter">ENTER PAYMENT:</label><br>
+      <input type="text" id="payment" name="payment" [(ngModel)]="payment">
+    </div>  
+    <button id="pay_order" (click)="compute()">PAY</button>
+    <button id="new" (click)="new()">NEW</button>
+  </div>
 </div>

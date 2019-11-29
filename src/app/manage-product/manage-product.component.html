@@ -10,8 +10,8 @@
     <label for="price">Price</label><br>
     <input type="number" placeholder="Price" #price="ngModel" name="productPrice" [(ngModel)]="productPrice"  [class.invalid]="price.invalid && price.touched" required><br><br>
     <div *ngIf="category.valid && product_name.valid && quantity.valid && price.valid">
-    <button type="submit" class="button" style="width: 100px; height: 40px; margin-left: 80px;">ADD</button>
-  </div>
+      <button type="submit" class="button" style="width: 100px; height: 40px; margin-left: 80px;">ADD</button>
+    </div>
   </form>
 </div>
 <div class="box2">
