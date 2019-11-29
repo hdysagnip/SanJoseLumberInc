@@ -18,6 +18,13 @@ const Product = mongoose.model('product',{
     price: Number
 });
 
+const Sales = mongoose.model('sales',{
+    product_id: Number,
+    quantity: Number,
+    total_price: Number,
+    date: Date
+});
+
 // set directory to static
 app.use(express.static(__dirname+'/dist/SanJoseLumberInc'));
 
@@ -59,6 +66,26 @@ app.put('/product/:id', urlEncoded, (req, res) => {
 
 app.delete('/product/:id', (req, res) => {
     Product.deleteOne({_id:req.params.id},(err,data) => {
+    if(err) res.json({msg:'Invalid Request'});
+        res.json(data);
+    })
+});
+
+app.post('/sales', urlEncoded, (req, res) => {     
+    var sales = new Sales({  
+        product_id: req.body.id,            
+        quantity: req.body.quantity,
+        total_price: req.body.total_price,
+        date: req.body.date   
+    });     
+    sales.save((err) => { 
+        if(err) res.json({msg:'Invalid Request!'});         
+        res.json({msg:'Order proceed!'})     
+    }); 
+}); 
+
+app.delete('/sales/:id', (req, res) => {
+    Sales.deleteOne({_id:req.params.id},(err,data) => {
     if(err) res.json({msg:'Invalid Request'});
         res.json(data);
     })
